@@ -157,7 +157,17 @@
 	
 	function isTimeSlotSelected(radioButtons) 
 	{
-		if (radioButtons instanceof Array){
+		console.log(radioButtons);
+		if (radioButtons.type == "radio"){
+			console.log("1");
+			if (radioButtons.checked) 
+			{
+				document.getElementById("alertSlot").style.display = "none";
+				return true;
+			}
+		}
+		else{
+			console.log("2");
 			for (i=radioButtons.length-1; i > -1; i--) 
 			{
 				if (radioButtons[i].checked) 
@@ -166,13 +176,6 @@
 					return true;
 				}
 
-			}
-		}
-		else{
-			if (radioButtons.checked) 
-			{
-				document.getElementById("alertSlot").style.display = "none";
-				return true;
 			}
 		}
 
