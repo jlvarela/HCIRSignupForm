@@ -9,6 +9,7 @@
 	<title>
     	Lab Search Study Signup
     </title>
+    <meta charset="UTF-8">
 <script type="text/javascript">
 	
 	var selectedStudy = 0;
@@ -188,41 +189,38 @@
 </head>
 <body>
 <div id="signupForm" align="center">
-	<h3>Coagmento - Lab Search Study Signup</h3>
+	<h3>Experimento de experiencia de usuario</h3>
 	<form method="post" onsubmit="return validateForm(this)">
 		<table class="body" width=90%>
 			<tr>
 			  <td colspan=2>
 				<ul>
-				<li>This is a study signup form. <strong>All the fields are required (other than comments)</strong>.</li>
-				<li>The study will take place in <a href="http://maps.rutgers.edu/display/building.cgi?NUM=3134">CI</a>-222 (Access trhoug Student Lounge), a computer lab in the School of Communication & Information on CAC.</li>
-				<li>You will be asked to fill in some questionnaires and interviewed briefly during this study.</li>
-				<li>No identifying information about you will be shared.</li>
-				<li>You will get <strong>$10 in cash</strong> for participating.</li>
-				<li>The study session will last <strong>60 minutes</strong>.</li>
-				<li>You can participate only once in this study either you choose to sign up for the collaborative or the individual study</li>
-				<li><strong>English</strong> must be your native languae.</li>
-				<li><strong>Intermediate</strong> typing and online search skills are required.</li>
-				<li>You must be between <strong>18 and 24 years old</strong>.</li>
-				<li>To sign up, select one of the studies, and one time-slot.</li>
-				<li>In addition to <strong>$10 in cash</strong>, the three best performing teams or participant (depending upon the study) will win the following prices <strong>per participant ($50 first place, $25 second place, $15 third place)</strong>.</li>
-				<li>Once you complete this form, we will contact you if there is any issue with your requested participation. Otherwise, we will see you soon at the time and place you indicate above. <strong></strong></li>
-				<li>This study has <strong>IRB approval</strong> with date 03/27/2012</li>
-				<li><a href="mailto:rgonzal@rutgers.edu?subject=Study inquiry">Contact us</a> if you have any questions.</li>
+				<li>Este es un formulario para participar en alguno de los experimentos. <strong>Todos los campos son obligatorios</strong>.</li>
+                     <li>El estudio tendrá lugar en: PONER PÁGINA EN GOOGLE <a href="http://maps.rutgers.edu/display/building.cgi?NUM=3134">CI</a>-222.</li>
+				<li>Durante el estudio se te pedirá llenar un formulario y posiblemente una breve entrevista.</li>
+				<li>Ninguna información personal tuya será revelada a terceros.</li>
+				<li>Al participar estarás participando por el sorteo de una <strong> Gift Card con $15.000</strong>.</li>
+				<li>El estudio tiene una duración aproximada de <strong>90 minutos</strong>.</li>
+				<li>De la lista de estudios disponibles, <strong>solamente puedes participar en uno</strong></li>
+				<li>Se requiere de un uso <strong>básico</strong> de computación.</li>
+				<li>Debes tener sobre <strong>18 años</strong> para participar.</li>
+				<li>Para participar debes escoger un experimento y seleccionar un horario.</li>
+				<li>Una vez hayas completado el formulario, se te conactará en caso de haber algún problema con la información registrada. De lo contrario, se te recordará tu participación para el día que hayas seleccionado/li>
+				<li>Este estudio está aprobado por el <strong>Comité de Ética de la Universidad de Santiago de Chile</strong></li>
+				<li>Contáctanos a alguno de estos correos para mayor información <a href="mailto:jose.varela@usach.cl?subject=USACH Estudio experiencia de usuario">jose.varela@usach.cl</a>, <a href="mailto:gary.fuenzalida@usach.cl?subject=USACH Estudio experiencia de usuario">gary.fuenzalida@usach.cl</a>, <a href="mailto:carlos.barrerap@usach.cl?subject=USACH Estudio experiencia de usuario">carlos.barrerap@usach.cl</a></li>
 				</ul>
 				</td>
 			</tr>
 			<tr bgcolor="CDEB8B">				
-				<td colspan=2><strong>Step-1: Select the study</strong></td>
+				<td colspan=2><strong>Step-1: Selecciona el estudio</strong></td>
 			</tr>
 			<tr>
-				<td colspan=2><div style="display: none; background: Red; text-align:center;" id="alertStudy"><strong>You Must Select One Study</strong></div></td>
+				<td colspan=2><div style="display: none; background: Red; text-align:center;" id="alertStudy"><strong>Debes seleccionar un estudio</strong></div></td>
 			</tr>
 			<tr>
-				<td width=50% valign="top"><strong><input type="radio" name="study" value="1" onClick="selectStudy(1);"/> Jose </strong>
+				<td width=50% valign="top"><strong><input type="radio" name="study" value="1" onClick="selectStudy(1);"/> Manipulación de objetos de información utilizando Gestos Corporales (Kinect) </strong>
 					<ul>
-						<li>This study requires a <em>team of two</em>.</li>
-						<li>Both of you should have worked on some project before (e.g., a class assignment).</li>
+						<li>Idealmente se requiere tener un bajo conocimiento utilizando dispositivos Kinect.</li>
 					</ul>
 				</td>
 				<td width=50% valign="top"><strong><input type="radio" name="study" value="2" onClick="selectStudy(2);"/> Carlos </strong>
@@ -242,21 +240,21 @@
 			<tr align=center>
 				<td align=center>
                      <table>
-                         <tr><th colspan=2>Participant details</th></tr>
-                         <tr><td>First name</td><td> <input type="text" id="s18" size=25 name="firstName" value="" /></td></tr>
-                         <tr><td>Last name</td><td> <input type="text" id="s19" size=25 name="lastName" value="" /></td></tr>
+                         <tr><th colspan=2>Información de contacto</th></tr>
+                         <tr><td>Nombres</td><td> <input type="text" id="s18" size=25 name="firstName" value="" /></td></tr>
+                         <tr><td>Apellido</td><td> <input type="text" id="s19" size=25 name="lastName" value="" /></td></tr>
                          <tr><td>Email</td><td> <input type="text" id="s20" size=25 name="email" value="" /></td></tr>
-                         <tr><td>Confirm Email:</td><td> <input type="text" size=25 id="s21" name="reEmail" value="" /></td></tr>
-                         <tr><td>Is English your native language?</td><td><div id="english"><input type="radio" id="s22" name="english" value="0" />No - <input type="radio" id="s23" name="english" value="1" />Yes</div></td></tr>
-                         <tr><td>Sex?</td><td><div id="sex"><input type="radio" id="s24" name="sex" value="F" />Female - <input type="radio" id="s25" name="sex" value="M" />Male</div></td></tr>
+                         <tr><td>Repetir Email:</td><td> <input type="text" size=25 id="s21" name="reEmail" value="" /></td></tr>
+                         <tr style="display: none"><td>Is English your native language?</td><td><div id="english"><input type="radio" id="s22" name="english" value="0" />No - <input type="radio" id="s23" name="english" value="1" checked />Yes</div></td></tr>
+                         <tr><td>Sexo</td><td><div id="sex"><input type="radio" id="s24" name="sex" value="F" />Mujer - <input type="radio" id="s25" name="sex" value="M" />Hombre</div></td></tr>
                          </table>
                 </td>
 			</tr>
 			<tr bgcolor="CDEB8B">
-				<td colspan=2><strong>Step-2: Select the time</strong></td>
+				<td colspan=2><strong>Step-2: Selecciona la fecha en la que participarás</strong></td>
 			</tr>
 			<tr bgcolor="CDEB8B">
-				<td colspan=2><div style="display: none; background: Red; text-align:center;" id="alertSlot"><strong>You Must Select One Slot. Click in the Weeks Below to Find Available Slots</strong></div></td>
+				<td colspan=2><div style="display: none; background: Red; text-align:center;" id="alertSlot"><strong>Debes escoger un horario. Haz click en las semanas para ver los horarios disponibles</strong></div></td>
 			</tr>
 			<tr>
 				<td>
@@ -286,7 +284,7 @@
 					}			
 				?>
 					<br />
-					<div onclick="switchMenu('<?php echo "jose".$weekID; ?>');"><strong>- Week of <?php echo $week;?></strong> - Click here to expand or collapse the time slots</div>
+					<div onclick="switchMenu('<?php echo "jose".$weekID; ?>');"><strong>- Semana <?php echo $week;?></strong> - Haz click aquí para ver los horarios disponibles</div>
 					<div style="display: none" id="<?php echo "jose".$weekID; ?>" style="text-align:left;">												
 				<?php
 				}
@@ -329,7 +327,7 @@
 					}			
 				?>
 					<br />
-					<div onclick="switchMenu('<?php echo "carlos".$weekID; ?>');"><strong>- Week of <?php echo $week;?></strong> - Click here to expand or collapse the time slots</div>
+					<div onclick="switchMenu('<?php echo "carlos".$weekID; ?>');"><strong>- Semana <?php echo $week;?></strong> - Haz click aquí para ver los horarios disponibles</div>
 					<div style="display: none" id="<?php echo "carlos".$weekID; ?>" style="text-align:left;">												
 				<?php
 				}
@@ -372,7 +370,7 @@
 					}			
 				?>
 					<br />
-					<div onclick="switchMenu('<?php echo "gary".$weekID; ?>');"><strong>- Week of <?php echo $week;?></strong> - Click here to expand or collapse the time slots</div>
+					<div onclick="switchMenu('<?php echo "gary".$weekID; ?>');"><strong>- Semana <?php echo $week;?></strong> - Haz click aquí para ver los horarios disponibles</div>
 					<div style="display: none" id="<?php echo "gary".$weekID; ?>" style="text-align:left;">												
 				<?php
 				}
@@ -397,14 +395,14 @@
 			<tr>
 				<td colspan=2 align=center>
 					<br/>
-					Comments (optional): (e.g., if you're going to be a few minutes late or if you have any other requests you want us to consider)
+					Comentarios (opcional): (ej., Si vas a llegar atrasado un par de minutos o si deseas comunicar otras consideraciones a los investigadores)
 					<br/>
 					<textarea name="comments" cols=80 rows=3></textarea>
 				</td>
 			</tr>
 			<tr>
 				<td align="center" colspan=2>
-					<div style="display: none; background: Red; text-align:center;" id="alertForm"><strong>Please Complete the Fields in Red and Try Again</strong></div
+					<div style="display: none; background: Red; text-align:center;" id="alertForm"><strong>Por favor completa todos los campos en rojos e inténtalo de nuevo.</strong></div
 				</td>
 			</tr>
 			<tr>
