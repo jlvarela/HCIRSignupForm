@@ -230,10 +230,9 @@
 				</td>
 			</tr>
 			<tr>
-				<td width=50% valign="top"><strong><input type="radio" name="study" value="3" onClick="selectStudy(3);"/> Gary </strong>
+				<td width=50% valign="top"><strong><input type="radio" name="study" value="3" onClick="selectStudy(3);"/> Interacción con representaciones visuales para la exploración de resultados de búsqueda de información</strong>
 					<ul>
-						<li>This study requires a <em>team of two</em>.</li>
-						<li>Both of you should have worked on some project before (e.g., a class assignment).</li>
+						<li>Solamente requiere el uso de un computador con mouse y teclado.</li>
 					</ul>
 				</td>
 			</tr>
