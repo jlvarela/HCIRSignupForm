@@ -225,7 +225,7 @@
 				</td>
 				<td width=50% valign="top"><strong><input type="radio" name="study" value="2" onClick="selectStudy(2);"/> Carlos </strong>
 					<ul>						
-						<li>This study requires a <em>single participant</em>.</li>
+						<li>Idealmente se requiere un minimo de conocimiento en el uso de pantallas tactiles y ratón/teclado.</li>
 					</ul>
 				</td>
 			</tr>
