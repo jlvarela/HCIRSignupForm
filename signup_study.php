@@ -7,7 +7,7 @@
 <html>
 <head>
 	<title>
-    	Lab Search Study Signup
+    	Experimento de experiencia de usuario
     </title>
     <meta charset="UTF-8">
 <script type="text/javascript">
@@ -205,7 +205,7 @@
 				<li>Se requiere de un uso <strong>básico</strong> de computación.</li>
 				<li>Debes tener sobre <strong>18 años</strong> para participar.</li>
 				<li>Para participar debes escoger un experimento y seleccionar un horario.</li>
-				<li>Una vez hayas completado el formulario, se te conactará en caso de haber algún problema con la información registrada. De lo contrario, se te recordará tu participación para el día que hayas seleccionado/li>
+				<li>Una vez hayas completado el formulario, se te conactará en caso de haber algún problema con la información registrada. De lo contrario, se te recordará tu participación para el día que hayas seleccionado</li>
 				<li>Este estudio está aprobado por el <strong>Comité de Ética de la Universidad de Santiago de Chile</strong></li>
 				<li>Contáctanos a alguno de estos correos para mayor información <a href="mailto:jose.varela@usach.cl?subject=USACH Estudio experiencia de usuario">jose.varela@usach.cl</a>, <a href="mailto:gary.fuenzalida@usach.cl?subject=USACH Estudio experiencia de usuario">gary.fuenzalida@usach.cl</a>, <a href="mailto:carlos.barrerap@usach.cl?subject=USACH Estudio experiencia de usuario">carlos.barrerap@usach.cl</a></li>
 				</ul>
