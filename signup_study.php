@@ -1,5 +1,8 @@
 <?php
     require_once('core/Connection.class.php');
+    include_once('Utils.php');
+
+    setlocale(LC_ALL,"es_ES");
     error_reporting(E_ALL & ~E_DEPRECATED);
     
     $STUDIES_ARRAY = array(1,2,3);
@@ -10,6 +13,7 @@
     	Experimento de experiencia de usuario
     </title>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
 <script type="text/javascript">
 	
 	var selectedStudy = 0;
@@ -212,7 +216,7 @@
 				</td>
 			</tr>
 			<tr bgcolor="CDEB8B">				
-				<td colspan=2><strong>Step-1: Selecciona el estudio</strong></td>
+				<td colspan=2><strong>Paso-1: Selecciona el estudio</strong></td>
 			</tr>
 			<tr>
 				<td colspan=2><div style="display: none; background: Red; text-align:center;" id="alertStudy"><strong>Debes seleccionar un estudio</strong></div></td>
@@ -223,7 +227,7 @@
 						<li>Idealmente se requiere tener un bajo conocimiento utilizando dispositivos Kinect.</li>
 					</ul>
 				</td>
-				<td width=50% valign="top"><strong><input type="radio" name="study" value="2" onClick="selectStudy(2);"/> Carlos </strong>
+				<td width=50% valign="top"><strong><input type="radio" name="study" value="2" onClick="selectStudy(2);"/> Táctil </strong>
 					<ul>						
 						<li>Idealmente se requiere un minimo de conocimiento en el uso de pantallas tactiles y ratón/teclado.</li>
 					</ul>
@@ -250,7 +254,7 @@
                 </td>
 			</tr>
 			<tr bgcolor="CDEB8B">
-				<td colspan=2><strong>Step-2: Selecciona la fecha en la que participarás</strong></td>
+				<td colspan=2><strong>Paso-2: Selecciona la fecha en la que participarás</strong></td>
 			</tr>
 			<tr bgcolor="CDEB8B">
 				<td colspan=2><div style="display: none; background: Red; text-align:center;" id="alertSlot"><strong>Debes escoger un horario. Haz click en las semanas para ver los horarios disponibles</strong></div></td>
@@ -259,7 +263,7 @@
 				<td>
 			<div id="joseSlots" style="display: none">
 			<?php
-			$query = "SELECT slotID, date, day, time, start, week FROM slots where available = 1 and study = 1";
+			$query = "SELECT slotID, date, day, time, start, week, timeBlock, dayOfWeek FROM slots where available = 1 and study IN (1,12,13,123)";
 			$connection = Connection::getInstance();
 			$results = $connection->commit($query);
 			$previousWeek = "";
@@ -268,7 +272,10 @@
 			{
 				$slotID = $line['slotID'];
 				$date = strtotime($line['date']);
+				$newDateformat = date('Y-F',$date);
 				$day = $line['day'];
+				$block = $line['timeBlock'];
+				$dayOfWeek = $line['dayOfWeek'];
 				$time = $line['time'];
 				$week = $line['week'];
 				$weekID = str_replace(" ","",$week);
@@ -283,13 +290,20 @@
 					}			
 				?>
 					<br />
-					<div onclick="switchMenu('<?php echo "jose".$weekID; ?>');"><strong>- Semana <?php echo $week;?></strong> - Haz click aquí para ver los horarios disponibles</div>
-					<div style="display: none" id="<?php echo "jose".$weekID; ?>" style="text-align:left;">												
+					<div onclick="switchMenu('<?php echo "jose".$weekID; ?>');"><strong>- Semana <?php echo $week." ($newDateformat)";?></strong> - Haz click aquí para ver los horarios disponibles</div>
+					<div style="display: none" id="<?php echo "jose".$weekID; ?>" style="text-align:left;">
 				<?php
 				}
-				
-				//echo "<input type=\"radio\" name=\"slot\" value=$slotID onclick=\"getSlots($slotID);\" />$day ".date('j', $date).": $time<br/>\n";	
-				echo "<input type=\"radio\" name=\"slot\" value=\"$slotID\" />$day ".date('j', $date).": $time<br/>\n";
+				printTable("jose", $week);
+				echo "\n";
+				//echo "<input type=\"radio\" name=\"slot\" value=$slotID onclick=\"getSlots($slotID);\" />$day ".date('j', $date).": $time<br/>\n";
+				?>
+				<script type="text/javascript">
+					document.getElementById('joseTimeCell<?php echo $week."-".$block."-".$dayOfWeek;?>').innerHTML = <?php
+				echo "\"<input type=radio name=slot value=$slotID />\";";?>
+				</script>
+				<?php
+				//echo "<input type=\"radio\" name=\"slot\" value=\"$slotID\" />$day ".date('j', $date).": $time<br/>\n";
 				$previousWeek=$weekID;	
 			}
 			
@@ -302,7 +316,7 @@
 			</div>
 			<div id="carlosSlots" style="display: none">
 			<?php
-			$query = "SELECT slotID, date, day, time, start, week FROM slots where available = 1 and study=2";
+			$query = "SELECT slotID, date, day, time, start, week, timeBlock, dayOfWeek FROM slots where available = 1 and study IN (12,2,23,123)";
 			$connection = Connection::getInstance();
 			$results = $connection->commit($query);
 			$previousWeek = "";
@@ -312,6 +326,8 @@
 				$slotID = $line['slotID'];
 				$date = strtotime($line['date']);
 				$day = $line['day'];
+				$block = $line['timeBlock'];
+				$dayOfWeek = $line['dayOfWeek'];
 				$time = $line['time'];
 				$week = $line['week'];
 				$weekID = str_replace(" ","",$week);
@@ -330,9 +346,16 @@
 					<div style="display: none" id="<?php echo "carlos".$weekID; ?>" style="text-align:left;">												
 				<?php
 				}
-				
-				//echo "<input type=\"radio\" name=\"slot\" value=$slotID onclick=\"getSlots($slotID);\" />$day ".date('j', $date).": $time<br/>\n";	
-				echo "<input type=\"radio\" name=\"slot\" value=\"$slotID\" />$day ".date('j', $date).": $time<br/>\n";
+				printTable("carlos", $week);
+				echo "\n";
+				//echo "<input type=\"radio\" name=\"slot\" value=$slotID onclick=\"getSlots($slotID);\" />$day ".date('j', $date).": $time<br/>\n";
+				?>
+				<script type="text/javascript">
+					document.getElementById('carlosTimeCell<?php echo $week."-".$block."-".$dayOfWeek;?>').innerHTML = <?php
+				echo "\"<input type=radio name=slot value=$slotID />\";";?>
+				</script>
+				<?php
+				//echo "<input type=\"radio\" name=\"slot\" value=\"$slotID\" />$day ".date('j', $date).": $time<br/>\n";
 				$previousWeek=$weekID;	
 			}
 			
@@ -345,7 +368,7 @@
 			</div>
 			<div id="garySlots" style="display: none">
 			<?php
-			$query = "SELECT slotID, date, day, time, start, week FROM slots where available = 1 and study=3";
+			$query = "SELECT slotID, date, day, time, start, week, timeBlock, dayOfWeek FROM slots where available = 1 and study IN (13,23,3,123)";
 			$connection = Connection::getInstance();
 			$results = $connection->commit($query);
 			$previousWeek = "";
@@ -355,6 +378,8 @@
 				$slotID = $line['slotID'];
 				$date = strtotime($line['date']);
 				$day = $line['day'];
+				$block = $line['timeBlock'];
+				$dayOfWeek = $line['dayOfWeek'];
 				$time = $line['time'];
 				$week = $line['week'];
 				$weekID = str_replace(" ","",$week);
@@ -373,9 +398,16 @@
 					<div style="display: none" id="<?php echo "gary".$weekID; ?>" style="text-align:left;">												
 				<?php
 				}
-				
-				//echo "<input type=\"radio\" name=\"slot\" value=$slotID onclick=\"getSlots($slotID);\" />$day ".date('j', $date).": $time<br/>\n";	
-				echo "<input type=\"radio\" name=\"slot\" value=\"$slotID\" />$day ".date('j', $date).": $time<br/>\n";
+				printTable("gary", $week);
+				echo "\n";
+				//echo "<input type=\"radio\" name=\"slot\" value=$slotID onclick=\"getSlots($slotID);\" />$day ".date('j', $date).": $time<br/>\n";
+				?>
+				<script type="text/javascript">
+					document.getElementById('garyTimeCell<?php echo $week."-".$block."-".$dayOfWeek;?>').innerHTML = <?php
+				echo "\"<input type=radio name=slot value=$slotID />\";";?>
+				</script>
+				<?php
+				//echo "<input type=\"radio\" name=\"slot\" value=\"$slotID\" />$day ".date('j', $date).": $time<br/>\n";
 				$previousWeek=$weekID;	
 			}
 			
@@ -389,7 +421,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan=2 bgcolor="CDEB8B"><strong>Step-3: Leave any comments you have (optional)</strong></td>
+				<td colspan=2 bgcolor="CDEB8B"><strong>Paso-3: Deja cualquier comentario en este cuadro (opcional)</strong></td>
 			</tr>
 			<tr>
 				<td colspan=2 align=center>

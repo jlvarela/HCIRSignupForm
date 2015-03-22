@@ -5,7 +5,8 @@
 ?>
 <html>
 <head>
-<title>Sign Up</title>
+	<meta charset="UTF-8">
+<title>Inscripción</title>
 </head>
 <body>
 <?php	
