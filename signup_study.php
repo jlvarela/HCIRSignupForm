@@ -10,7 +10,7 @@
 <html>
 <head>
 	<title>
-    	Experimento de experiencia de usuario
+    	Estudio de experiencia de usuario
     </title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -193,25 +193,26 @@
 </head>
 <body>
 <div id="signupForm" align="center">
-	<h3>Experimento de experiencia de usuario</h3>
+	<h3>Estudio de experiencia de usuario</h3>
 	<form method="post" onsubmit="return validateForm(this)">
 		<table class="body" width=90%>
 			<tr>
 			  <td colspan=2>
 				<ul>
-				<li>Este es un formulario para participar en alguno de los experimentos. <strong>Todos los campos son obligatorios</strong>.</li>
-                     <li>El estudio tendrá lugar en: PONER PÁGINA EN GOOGLE <a href="http://maps.rutgers.edu/display/building.cgi?NUM=3134">CI</a>-222.</li>
-				<li>Durante el estudio se te pedirá llenar un formulario y posiblemente una breve entrevista.</li>
-				<li>Ninguna información personal tuya será revelada a terceros.</li>
-				<li>Al participar estarás participando por el sorteo de una <strong> Gift Card con $15.000</strong>.</li>
-				<li>El estudio tiene una duración aproximada de <strong>90 minutos</strong>.</li>
-				<li>De la lista de estudios disponibles, <strong>solamente puedes participar en uno</strong></li>
-				<li>Se requiere de un uso <strong>básico</strong> de computación.</li>
-				<li>Debes tener sobre <strong>18 años</strong> para participar.</li>
-				<li>Para participar debes escoger un experimento y seleccionar un horario.</li>
-				<li>Una vez hayas completado el formulario, se te conactará en caso de haber algún problema con la información registrada. De lo contrario, se te recordará tu participación para el día que hayas seleccionado</li>
-				<li>Este estudio está aprobado por el <strong>Comité de Ética de la Universidad de Santiago de Chile</strong></li>
-				<li>Contáctanos a alguno de estos correos para mayor información <a href="mailto:jose.varela@usach.cl?subject=USACH Estudio experiencia de usuario">jose.varela@usach.cl</a>, <a href="mailto:gary.fuenzalida@usach.cl?subject=USACH Estudio experiencia de usuario">gary.fuenzalida@usach.cl</a>, <a href="mailto:carlos.barrerap@usach.cl?subject=USACH Estudio experiencia de usuario">carlos.barrerap@usach.cl</a></li>
+				<li>Este es un formulario para participar en alguno de los estudios listados a continuación. <strong>Todos los campos son obligatorios</strong>.</li>
+                     <li>El estudio tendrá lugar en: <a href="https://www.google.cl/maps/place/Departamento+de+Ingenier%C3%ADa+Inform%C3%A1tica+USACH/@-33.4488784,-70.6857559,17z/data=!4m2!3m1!1s0x0000000000000000:0x570cc870711695a9">Departamento de Ingeniería Informática - Universidad de Santiago de Chile</a>.</li>
+				<li>Ninguna información personal suya será revelada a terceros.</li>
+				<li>Al participar estará participando por el sorteo de una <strong> Gift Card con $15.000</strong>.</li>
+				<li>El estudio tiene una duración aproximada de <strong>60 minutos</strong>.</li>
+				<li>Una vez hayas completado el formulario, se te contactará en caso de haber algún problema con la información registrada. De lo contrario, se te recordará tu participación para el día que hayas seleccionado</li>
+					<li>Este estudio está aprobado por el <strong>Comité de Ética de la Universidad de Santiago de Chile</strong></li>
+				<li>Para participar debe cumplir con las siguientes condiciones:</li>
+				<ul>
+					<li>De la lista de estudios disponibles, <strong>solamente puede participar en uno</strong></li>
+					<li>Se requiere de un uso <strong>básico</strong> de computación.</li>
+					<li>Debe tener sobre <strong>18 años</strong>.</li>
+					<li>Debe escoger un estudio y seleccionar un módulo horario.</li>
+				</ul>
 				</ul>
 				</td>
 			</tr>
@@ -225,11 +226,14 @@
 				<td width=50% valign="top"><strong><input type="radio" name="study" value="1" onClick="selectStudy(1);"/> Manipulación de objetos de información utilizando Gestos Corporales (Kinect) </strong>
 					<ul>
 						<li>Idealmente se requiere tener un bajo conocimiento utilizando dispositivos Kinect.</li>
+						<li>Requiere que la persona esté de pie durante un tiempo mínimo de 25 minutos</li>
+						<li>Para mayor información contactar a <a href="mailto:jose.varela@usach.cl?subject=USACH Estudio experiencia de usuario">jose.varela@usach.cl</a></li>
 					</ul>
 				</td>
 				<td width=50% valign="top"><strong><input type="radio" name="study" value="2" onClick="selectStudy(2);"/> Táctil </strong>
 					<ul>						
 						<li>Idealmente se requiere un minimo de conocimiento en el uso de pantallas tactiles y ratón/teclado.</li>
+						<li>Para mayor información contactar a <a href="mailto:carlos.barrerap@usach.cl?subject=USACH Estudio experiencia de usuario">carlos.barrerap@usach.cl</a></li>
 					</ul>
 				</td>
 			</tr>
@@ -237,6 +241,7 @@
 				<td width=50% valign="top"><strong><input type="radio" name="study" value="3" onClick="selectStudy(3);"/> Interacción con representaciones visuales para la exploración de resultados de búsqueda de información</strong>
 					<ul>
 						<li>Solamente requiere el uso de un computador con mouse y teclado.</li>
+						<li>Para mayor información contactar a <a href="mailto:gary.fuenzalida@usach.cl?subject=USACH Estudio experiencia de usuario">gary.fuenzalida</a></li>
 					</ul>
 				</td>
 			</tr>
@@ -325,6 +330,7 @@
 			{
 				$slotID = $line['slotID'];
 				$date = strtotime($line['date']);
+				$newDateformat = date('Y-F',$date);
 				$day = $line['day'];
 				$block = $line['timeBlock'];
 				$dayOfWeek = $line['dayOfWeek'];
@@ -342,7 +348,7 @@
 					}			
 				?>
 					<br />
-					<div onclick="switchMenu('<?php echo "carlos".$weekID; ?>');"><strong>- Semana <?php echo $week;?></strong> - Haz click aquí para ver los horarios disponibles</div>
+					<div onclick="switchMenu('<?php echo "carlos".$weekID; ?>');"><strong>- Semana <?php echo $week." ($newDateformat)";?></strong> - Haz click aquí para ver los horarios disponibles</div>
 					<div style="display: none" id="<?php echo "carlos".$weekID; ?>" style="text-align:left;">												
 				<?php
 				}
@@ -377,6 +383,7 @@
 			{
 				$slotID = $line['slotID'];
 				$date = strtotime($line['date']);
+				$newDateformat = date('Y-F',$date);
 				$day = $line['day'];
 				$block = $line['timeBlock'];
 				$dayOfWeek = $line['dayOfWeek'];
@@ -394,7 +401,7 @@
 					}			
 				?>
 					<br />
-					<div onclick="switchMenu('<?php echo "gary".$weekID; ?>');"><strong>- Semana <?php echo $week;?></strong> - Haz click aquí para ver los horarios disponibles</div>
+					<div onclick="switchMenu('<?php echo "gary".$weekID; ?>');"><strong>- Semana <?php echo $week." ($newDateformat)";?></strong> - Haz click aquí para ver los horarios disponibles</div>
 					<div style="display: none" id="<?php echo "gary".$weekID; ?>" style="text-align:left;">												
 				<?php
 				}
